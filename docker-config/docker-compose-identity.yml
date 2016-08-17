@@ -1,0 +1,11 @@
+indentitybpa:
+  build: .
+  dockerfile: Dockerfile-identity
+  restart: always
+  environment:
+    - VIRTUAL_HOST=identitybpa.agileana.com
+    - LETSENCRYPT_HOST=identitybpa.agileana.com
+    - LETSENCRYPT_EMAIL=amit@agileana.com
+  expose:
+    - 80
+    - 443
