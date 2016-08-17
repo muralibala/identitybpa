@@ -7,11 +7,11 @@
 ## Steps to be run via CLI 
 (Note : Replace subnets / Security group details / Load balancer name/ Custom cipher policy name with your custom details)
 
-1. you can run the following Commands from an EC2 instance that has an EC2 role to create an ELB 
+### 1. you can run the following Commands from an EC2 instance that has an EC2 role to create an ELB 
 ```shell
 aws elb create-load-balancer --load-balancer-name my-load-balancer --listeners "Protocol=HTTPS,LoadBalancerPort=443,InstanceProtocol=HTTPS,InstancePort=443,SSLCertificateId=arn:aws:acm:us-east-1:761805658877:certificate/24649197-5a95-4f73-a2d5-9806aeec5e6c" --subnets subnet-5348736e subnet-7ac4e350 subnet-e93a2d9f subnet-e9bb9ab1 --security-groups sg-c2d588b9
 ```
-2. Now create a new cipher security policy that will be tied with the ELB
+### 2. Now create a new cipher security policy that will be tied with the ELB
 ```shell
 aws elb create-load-balancer-policy \
 --load-balancer-name my-load-balancer \
@@ -43,7 +43,7 @@ AttributeName=AES256-SHA256,AttributeValue=true \
 AttributeName=AES256-SHA,AttributeValue=true \
 AttributeName=DES-CBC3-SHA,AttributeValue=true
 ```
-3. Attach the custom cipher policy to your ELB
+### 3. Attach the custom cipher policy to your ELB
 ```shell
 aws elb set-load-balancer-policies-of-listener --load-balancer-name my-load-balancer --load-balancer-port 443 --policy-name MySecurityPolicy-2016-08 --region us-east-1
 ```
