@@ -1,7 +1,7 @@
 
 ## LetsEncrypt SSL Certs on Nginx
 
-This usecase shows auto congiruation of an nginx server with SSL certs. 
+This usecase shows configuration of an nginx server with SSL certificates obtained from LetsEncrypt.
 
 The demo SSL site is configured at - 
 https://identitybpa1.skvared.com/
@@ -13,8 +13,13 @@ https://identitybpa1.skvared.com/
 * SSH to the VM and copy all files from the current github folder
 * Execute the following statement as root user passing in the sub-domain name and email id
 ``` 
-./install.sh identitybpa.domain email_id@gmail.com 
+./install.sh identitybpa.<domain> <email_id>
 ```
-* You should now be able to access https://identitybpa.domain.com
+* The script - 
+  * Installs nginx and starts it
+  * Installs LetsEncrypt agent 
+  * Executes LetsEncrypt agent command that does domain validation using 'well-known uri' and issues certificates
+  * Applies the certificates to Nginx and restarts
+* You should now be able to access https://identitybpa.<domain>.com
 * Take a look at install.sh to see details
 
