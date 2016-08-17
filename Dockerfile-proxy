@@ -1,2 +1,0 @@
-FROM jwilder/nginx-proxy:latest
-ADD identitybpa.digitauxsolutions.com /etc/nginx/vhost.d/identitybpa.digitauxsolutions.com
