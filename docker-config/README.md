@@ -21,8 +21,12 @@ docker-machine create -d azure \
 ```shell
 docker-machine ls
 ```
-### 3. Point subdomain to ip addrress of new docker-machine
-### 4. Bring up docker containers 
+### 3. Configure local shell for new docker-machine by running following comand and following instructions
+```shell
+docker-machine env machine
+```
+### 4. Point subdomain to ip addrress of new docker-machine
+### 5. Bring up docker containers 
 ```shell
 docker-compose -f .\docker-compose-identity.yml -f .\docker-compose-proxy.yml up
 ```
