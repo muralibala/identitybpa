@@ -1,0 +1,2 @@
+FROM jwilder/nginx-proxy:latest
+ADD identitybpa.agileana.com /etc/nginx/vhost.d/identitybpa.agileana.com
